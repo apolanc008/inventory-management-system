@@ -7,13 +7,13 @@ export default function Background() {
             {/* Background image chart */}
             <img
                 src="/line-chart.png"
-                className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-0"
+                className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-0 opacity-50"
             />
 
             {/* Background image warehouse */}
             <img 
                 src="/warehouse.png" 
-                className="absolute bottom-0 left-0 w-90 h-120 m-4 pointer-events-none" 
+                className="absolute bottom-0 left-0 w-90 h-100 m-4 pointer-events-none" 
             />
        </div>
     )

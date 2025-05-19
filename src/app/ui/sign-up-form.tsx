@@ -8,6 +8,7 @@ import {
     UserIcon, 
     LockClosedIcon 
 } from "@heroicons/react/24/solid"
+import Link from "next/link";
 
 
 export default function SingForm() {
@@ -120,8 +121,12 @@ export default function SingForm() {
         </div>
 
         {/* Button */}
-        <Button className="mb-8">
-            Create
+        <Button>
+            <Link
+                href="/dashboard"
+            >
+                Create
+            </Link> 
         </Button>
 
     </div>

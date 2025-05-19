@@ -1,7 +1,7 @@
 "use client";
 import { Suspense } from "react";
 import Background from "../ui/background";
-import SignForm from "../ui/sign-in-form";
+import SignForm from "../ui/sign-up-form";
 
 
 export default function SignPage() {
@@ -10,7 +10,7 @@ export default function SignPage() {
       {/* Full-page background behind everything */}
       <Background />
 
-      {/* Centered sign-in form on top of background */}
+      {/* Centered sign-up form on top of background */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <Suspense>
           <SignForm />

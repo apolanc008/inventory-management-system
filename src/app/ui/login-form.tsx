@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "./button";
 import { UserIcon, LockClosedIcon } from "@heroicons/react/24/solid"
+import Link from "next/link";
 
 
 export default function LoginForm() {
@@ -47,12 +48,16 @@ export default function LoginForm() {
 
       {/* Button */}
       <Button>
-        Log in 
+        <Link
+          href="/dashboard"
+        >
+          Log in
+        </Link> 
       </Button>
 
       <p className="mt-12 text-sm font-normal mb-8 text-center text-gray-800">
         Don't have an account?{" "}  
-        <a href="/sign-in" className="text-red-900 italic hover:underline font-normal">
+        <a href="/sign-up" className="text-red-900 italic hover:underline font-normal">
           Sign up  
         </a>
       </p>

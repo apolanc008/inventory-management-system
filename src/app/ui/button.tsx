@@ -9,7 +9,7 @@ export function Button({ children, className, ...rest }: ButtonProps) {
     <button
       {...rest}
       className={clsx(
-        "mt-4 w-40 bg-red-900 hover:bg-red-800 text-white font-semibold py-3 rounded-lg transition-colors duration-300",
+        "mt-4 w-30 bg-red-900 hover:bg-red-800 text-white font-semibold py-3 rounded-lg transition-colors duration-300",
         className,
       )}
     >
