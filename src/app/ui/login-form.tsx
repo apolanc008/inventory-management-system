@@ -15,11 +15,11 @@ export default function LoginForm() {
     const [password, setPassword] = useState("")
     const router = useRouter()
 
-    const handleLogin = async (e: { preventDefault: () => void; }) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
     if (!user || !password) {
-        alert("Please enter both username/email and password");
+        alert("Please enter both username and password");
         return;
     }
 
