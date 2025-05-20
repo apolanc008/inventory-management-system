@@ -1,34 +1,37 @@
 'use client'
 
 import Link from 'next/link'
+import Logo from "../components/logo"
 import { usePathname } from 'next/navigation'
 
 const links = [
     { href: '/dashboard', label: 'Dashboard' },
-    { href: '/products', label: 'Products' },
-    { href: '/orders', label: 'Orders' },
-    { href: '/stock', label: 'Stock' },
-    { href: '/categories', label: 'Categories' },
-    { href: '/suppliers', label: 'Suppliers' },
-    { href: '/reports', label: 'Reports' },
-    { href: '/settings', label: 'Settings' }
+    { href: '/dashboard/products', label: 'Products' },
+    { href: '/dashboard/orders', label: 'Orders' },
+    { href: '/dashboard/stock', label: 'Stock' },
+    { href: '/dashboard/categories', label: 'Categories' },
+    { href: '/dashboard/suppliers', label: 'Suppliers' },
+    { href: '/dashboard/reports', label: 'Reports' },
+    { href: '/dashboard/settings', label: 'Settings' }
 ]
 
-export default function Sidebar() {
+export default function SideBar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-64 bg-white shadow-md h-screen p-4">
-      <h2 className="text-xl font-bold mb-6">Inventory System</h2>
-      <nav className="space-y-2">
+    <aside className="w-70 bg-red-900 shadow-md h-screen flex flex-col">
+      <div className="p-4">
+        <Logo />
+      </div>
+      <nav className="space-y-4">
         {links.map(({ href, label }) => (
           <Link
             key={href}
             href={href}
-            className={`block px-3 py-2 rounded ${
+            className={`block px-3 py-2 ${
               pathname === href
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-700 hover:bg-blue-100'
+                ? 'bg-red-800 font-bold text-white'
+                : 'text-white hover:bg-red-800'
             }`}
           >
             {label}

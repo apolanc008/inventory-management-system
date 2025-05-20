@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default function Suppliers() {
+export default function SupplierPage() {
   return (
     <div>
-      <h2>Suppliers</h2>
+
     </div>
-  );
+  )
 }

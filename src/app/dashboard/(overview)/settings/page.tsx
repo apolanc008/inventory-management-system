@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default function Settings() {
+export default function SettingPage() {
   return (
     <div>
-      <h2>Settings</h2>
+
     </div>
-  );
+  )
 }

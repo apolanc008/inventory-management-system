@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default function Stock() {
+export default function StockPage() {
   return (
     <div>
-      <h2>Stock-in/Out</h2>
+
     </div>
-  );
+  )
 }

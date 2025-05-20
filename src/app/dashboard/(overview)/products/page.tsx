@@ -1,9 +1,9 @@
-import Image from "next/image";
+import React from "react"
 
-export default function Products() {
+export default function ProductPage() {
   return (
     <div>
-      <h2>Products</h2>
+
     </div>
-  );
+  )
 }

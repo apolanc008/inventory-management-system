@@ -1,8 +1,10 @@
+import React from "react"
 
-export default function Categories() {
+
+export default function CategoryPage() {
   return (
     <div>
-      <h2>Categories</h2>
+
     </div>
-  );
+  )
 }

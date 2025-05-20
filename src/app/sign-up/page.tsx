@@ -1,4 +1,5 @@
 "use client";
+
 import { Suspense } from "react";
 import Background from "../ui/background";
 import SignForm from "../ui/sign-up-form";
