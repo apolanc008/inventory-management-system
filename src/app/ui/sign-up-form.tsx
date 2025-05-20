@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { submitSignUpForm } from "../lib/formhandler"
+import { submitSignUpForm } from "../../../lib/formhandler"
 import { Button } from "./button";
 import { 
     PencilIcon, 
@@ -42,9 +42,9 @@ export default function SingForm() {
         router.push("/dashboard");
     } catch (error) {
         if (error instanceof Error) {
-        alert(error.message);
+            alert(error.message);
         } else {
-        alert("Unknown error has occurred.");
+            alert("Unknown error has occurred.");
         }
     }};
 

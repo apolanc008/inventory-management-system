@@ -1,17 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { submitLoginForm } from "../../../lib/formhandler"
 import { Button } from "./button";
-import { UserIcon, LockClosedIcon } from "@heroicons/react/24/solid"
-import Link from "next/link";
+import { 
+  UserIcon, 
+  LockClosedIcon 
+} from "@heroicons/react/24/solid"
 
 
 export default function LoginForm() {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("")
+    const router = useRouter()
+
+    const handleLogin = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+
+    if (!user || !password) {
+        alert("Please enter both username/email and password");
+        return;
+    }
+
+    try {
+        const data = await submitLoginForm({
+            username: user,
+            password,
+        });
+
+        console.log("Login successful:", data);
+        router.push("/dashboard");
+
+    } catch (error) {
+        if (error instanceof Error) {
+            alert(error.message);
+        } else {
+            alert("Unknown error has occurred.");
+        }
+    }};
 
   return (
-    <div className="relative z-10 bg-gray-100 p-10 rounded-full shadow-2xl max-w-md w-full min-h-[650px] flex flex-col items-center">
+    <form 
+      onSubmit={handleLogin}
+      className="relative z-10 bg-gray-100 p-10 rounded-full shadow-2xl max-w-md w-full min-h-[650px] flex flex-col items-center"
+    >
 
       <img 
         src="/boxes.png"
@@ -47,12 +80,8 @@ export default function LoginForm() {
       </div>
 
       {/* Button */}
-      <Button>
-        <Link
-          href="/dashboard"
-        >
-          Log in
-        </Link> 
+      <Button type="submit">
+         Log in
       </Button>
 
       <p className="mt-12 text-sm font-normal mb-8 text-center text-gray-800">
@@ -62,6 +91,6 @@ export default function LoginForm() {
         </a>
       </p>
 
-    </div>
+    </form>
   );
 }
