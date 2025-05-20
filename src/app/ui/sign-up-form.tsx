@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { submitSignUpForm } from "../lib/formhandler"
 import { Button } from "./button";
 import { 
     PencilIcon, 
@@ -8,7 +10,6 @@ import {
     UserIcon, 
     LockClosedIcon 
 } from "@heroicons/react/24/solid"
-import Link from "next/link";
 
 
 export default function SingForm() {
@@ -19,9 +20,39 @@ export default function SingForm() {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
 
-  return (
-    <div className="relative z-10 bg-gray-100 p-10 rounded-full shadow-2xl max-w-md w-full min-h-[650px] flex flex-col items-center">
+    const router = useRouter();
 
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    try {
+        await submitSignUpForm({
+        name,
+        lastname: lastName,
+        username: user,
+        email,
+        password,
+        confirmPassword,
+        });
+        router.push("/dashboard");
+    } catch (error) {
+        if (error instanceof Error) {
+        alert(error.message);
+        } else {
+        alert("Unknown error has occurred.");
+        }
+    }};
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="relative z-10 bg-gray-100 p-10 rounded-full shadow-2xl max-w-md w-full min-h-[650px] flex flex-col items-center"
+    >
         <img 
             src="/boxes.png"
             className="w-30 h-30 mb-8" 
@@ -117,18 +148,14 @@ export default function SingForm() {
                 className="pl-8 w-full mb-2 p-2 border-0 border-b-2 border-red-500 focus:outline-none focus:border-red-700 bg-red-50 rounded-sm placeholder-gray-500 text-black"
                 />
             </div>
-
         </div>
 
-        {/* Button */}
-        <Button>
-            <Link
-                href="/dashboard"
-            >
-                Create
-            </Link> 
+        {/* Submit Button */}
+        <Button type="submit">
+            Create
         </Button>
 
-    </div>
+    </form>
+
   );
 }
