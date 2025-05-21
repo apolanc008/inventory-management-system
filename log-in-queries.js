@@ -4,7 +4,7 @@ import pool from './db.js';
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
-  console.log("Login request body:", req.body);  // Debug
+  console.log("Login request body:", req.body);  
 
   const { username, password } = req.body;
 
@@ -24,6 +24,10 @@ router.post('/login', async (req, res) => {
 
     const user = userQuery.rows[0];
 
+    req.session.userId = user.id;
+
+    console.log("Session user ID:", req.session.userId);
+
     res.status(200).json({
       message: "Login successful",
       user: {
@@ -35,6 +39,13 @@ router.post('/login', async (req, res) => {
     console.error(err);
     res.status(500).send("Server error");
   }
+});
+
+
+// ✅ Temporary route to confirm session is being saved
+app.get('/test-session', (req, res) => {
+  console.log("Session user ID on /test-session:", req.session.userId);
+  res.json({ userId: req.session.userId });
 });
 
 export default router;

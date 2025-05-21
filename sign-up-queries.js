@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
+import session from 'express-session';
 
 import pool from './db.js';
 import loginRouter from './log-in-queries.js'
+import userInfoRoutes from './user-info-queries.js';
 import logoutRoutes from "./log-out.js"
 
 
@@ -15,7 +17,18 @@ app.use(cors({
   methods: ["POST", "GET", "OPTIONS"],
   credentials: true
 }));
+
 app.use(express.json())
+
+app.use(session({
+  secret: 'secret-key', 
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, 
+    httpOnly: true
+  }
+}));
 
 let users = [];
 
@@ -63,7 +76,9 @@ app.post("/user", async (req, res) => {
 
 app.use('/', loginRouter);
 
-app.use(logoutRoutes)
+app.use('/', userInfoRoutes);
+
+app.use(logoutRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
