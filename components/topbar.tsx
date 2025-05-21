@@ -8,13 +8,16 @@ import {
     ArrowPathIcon,
     MagnifyingGlassIcon,
     BellAlertIcon,
-    UserIcon, 
     Cog6ToothIcon
 } from "@heroicons/react/24/solid"
+import { useRouter } from 'next/navigation'
+import UserDropdown from "@/app/dropdown/user"
+import NotificationDropdown from "@/app/dropdown/notifications"
 
 export default function TopBar() {
     const pathname = usePathname();
     const title = getPageTitle(pathname);
+    const router = useRouter()
 
     const [searchQuery, setSearchQuery] = useState("")
 
@@ -49,18 +52,16 @@ export default function TopBar() {
                 </div>
 
                 {/* Notifications */}
-                <button>
-                    <BellAlertIcon className="h-10 w-10 text-red-900"/>
-                </button>
+                <NotificationDropdown />
 
                 {/* User */}
-                <button>
-                    <UserIcon className="h-10 w-10 text-red-900"/>
-                </button>
+                <UserDropdown />
 
                 {/* Settings */}
-                <button>
-                    <Cog6ToothIcon className="h-10 w-10 text-red-900"/>
+                <button 
+                    onClick={() => router.push('/dashboard/settings')}
+                >
+                    <Cog6ToothIcon className="h-10 w-10 text-red-900"/> 
                 </button>
 
             </div>

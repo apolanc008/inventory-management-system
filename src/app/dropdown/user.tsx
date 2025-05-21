@@ -1,0 +1,65 @@
+'use client'
+
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import {
+     UserCircleIcon,
+     UserIcon 
+} from "@heroicons/react/24/solid"
+import { Button } from "../ui/button"
+
+export default function UserDropdown() {
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+
+  const name = ""
+  const lastname = ""
+  const username = "" 
+
+  const handleLogout = async () => {
+    await fetch("http://localhost:3000/logout", {
+      method: "POST",
+      credentials: "include",
+    })
+    router.push("/login")
+  }
+
+  return (
+    <div className="relative">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="focus:outline-none"
+      >
+        <UserIcon className="h-10 w-10 text-red-900"/>
+      </button>
+
+      {/* Dropdown */}
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-gray-100 rounded-lg shadow-lg z-50 p-4 text-sm">
+            <p
+                className="text-black mb-2">
+                    <div className="flex justify-center">
+                        <UserCircleIcon className="h-10 w-10 text-black" />
+                    </div>
+                    Profile
+                    <span className="font-bold mb-3">
+                        { name }
+                        { lastname }
+                        <br />
+                        { username }
+                    </span>
+            </p>
+
+            <div className="flex justify-center">
+                <Button 
+                    onClick={handleLogout} 
+                    className="bg-red-800 text-white"
+                >
+                    Log out
+                </Button>
+            </div>
+        </div>
+      )}
+    </div>
+  )
+}

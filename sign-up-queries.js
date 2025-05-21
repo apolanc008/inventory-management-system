@@ -3,6 +3,8 @@ import cors from 'cors';
 
 import pool from './db.js';
 import loginRouter from './log-in-queries.js'
+import logoutRoutes from "./log-out.js"
+
 
 const app = express() 
 
@@ -60,6 +62,8 @@ app.post("/user", async (req, res) => {
 });
 
 app.use('/', loginRouter);
+
+app.use(logoutRoutes)
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
