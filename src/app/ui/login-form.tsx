@@ -85,7 +85,7 @@ export default function LoginForm() {
       </Button>
 
       <p className="mt-12 text-sm font-normal mb-8 text-center text-gray-800">
-        Don't have an account?{" "}  
+        Don&apos;t have an account?{" "}  
         <a href="/sign-up" className="text-red-900 italic hover:underline font-normal">
           Sign up  
         </a>
