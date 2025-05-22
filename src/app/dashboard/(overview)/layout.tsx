@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import SideBar from "../../../../components/sidebar";
-import TopBar from "../../../../components/topbar";
+import SideBar from "@/app/components/sidebar";
+import TopBar from "@/app/components/topbar";
 
 
 export default function DashboardLayout({

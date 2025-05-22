@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Logo from "../components/logo"
+import Logo from "./logo"
 import { usePathname, useRouter } from 'next/navigation'
 import { Button } from '@/app/ui/button'
 
