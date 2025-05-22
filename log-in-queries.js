@@ -41,11 +41,4 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-// ✅ Temporary route to confirm session is being saved
-app.get('/test-session', (req, res) => {
-  console.log("Session user ID on /test-session:", req.session.userId);
-  res.json({ userId: req.session.userId });
-});
-
 export default router;

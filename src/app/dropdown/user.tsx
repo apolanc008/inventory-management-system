@@ -59,23 +59,31 @@ export default function UserDropdown() {
       {/* Dropdown */}
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-gray-100 rounded-lg shadow-lg z-50 p-4 text-sm">
-            <p
+            <div
                 className="text-black mb-4">
-                    <div className="flex justify-center mb-2">
+                    <div className="flex flex-col items-center">
                         <UserCircleIcon className="h-10 w-10 text-black" />
                     </div>
-                   <strong className="block">Profile</strong>
+                    
                    <br />
                     <div className="text-center">
                         <span>
-                            {userData.name} {userData.lastname}
+                            Name: {userData.name} {userData.lastname}
                             <br />
-                            @{userData.username}
+                            Username: @{userData.username}
+                            <br />
                         </span>
                     </div>
-            </p>
+            </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-x-4">
+                <Button
+                    onClick={() => router.push('/edit-profile')}
+                    className="bg-red-800 text-white"
+                >
+                    Edit Profile
+                </Button>
+
                 <Button 
                     onClick={handleLogout} 
                     className="bg-red-800 text-white"
