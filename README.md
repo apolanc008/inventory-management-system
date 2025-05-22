@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StockWise
 
-## Getting Started
+A simple CRUD API backend for a future full-featured stock management system. Right now, the focus is on user account management; product and inventory-related endpoints will come later.
 
-First, run the development server:
+**Tech Stack**  
+- Node.js & Express.js  
+- PostgreSQL  
+- typescript files  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Setup
+npm install        # install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm install -g pnpm # install pnpm CLI
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm run dev         # launch dev server
 
-## Learn More
+node server.js      # start API server
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Create Account**: Register a new user with username, lastname, email, pasword 
+- **Login**: Authenticate existing users. 
+- **Read Profile**: Get the authenticated user’s account details.  
+- **Update Profile**: Change username, email, or password.  
+- **Delete Account**: Remove the authenticated user’s account and all associated data.
 
-## Deploy on Vercel
+## Future Work
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Product CRUD endpoints  
+- Inventory alerts  
+- Order management  
+- Role-based access  
+- Real-time updates  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Demo
+
+(https://github.com/apolanc008/inventory-management-system/deployments/Preview%20%E2%80%93%20inventory-management-system)
